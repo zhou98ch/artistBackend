@@ -13,9 +13,8 @@ http.createServer((req, res) => {
             const ARTIST = params['artist'];
             const FILENAME = params['filename']
         if(ARTIST && FILENAME){
-        console.log(ARTIST);
-        console.log(FILENAME);
-        apiRequest.callApi(ARTIST,function(response){
+        
+            apiRequest.callApi(ARTIST,function(response){
             if(response.length===0){ //if no artists found
                 readJson("NAMES.json",(data)=>{
                     let names = data;
@@ -25,14 +24,15 @@ http.createServer((req, res) => {
                     while(MAX<names.length && num<MAX){
                         
                         let randomIdx = randArray[num]
-                        res.write(names[randomIdx]);
+                       
                         apiRequest.callApi(names[randomIdx],function(response){
                             let newArtists = imageFilter(response);
                             createCsv(FILENAME+".csv",newArtists,['name', 'mbid', 'url','image','image_small']);
-                            res.write(JSON.stringify(newArtists));
+                            
                         });
                         num+=1;
                     }
+                    res.write("No artist found. Retrieved random data.")
                     res.end(); 
                 });
 
