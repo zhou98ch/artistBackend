@@ -1,11 +1,7 @@
 function imageFilter(artistList){
-    // console.log(artistList.length);
     artistList.forEach(artist => {
-        // console.log(artist['name']);
         let images = artist.image;
         images.forEach(image => {
-            // console.log("---------------------")
-            // console.log(image);
             artist['image_small'] = '';
             artist['image'] ='';
             if(image['size']==='small'){
@@ -16,7 +12,6 @@ function imageFilter(artistList){
         }
         });
     });
-    // console.log(artistList[0]);
     return artistList;
 }
 function randomIdxs(max){
