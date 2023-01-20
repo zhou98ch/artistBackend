@@ -1,0 +1,16 @@
+{
+  "name": "artistapi",
+  "version": "1.0.0",
+  "description": "retrieving information of artists",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Jingyue Zhou",
+  "license": "ISC",
+  "dependencies": {
+    "json2csv": "^5.0.7",
+    "request": "^2.88.2"
+  }
+}
